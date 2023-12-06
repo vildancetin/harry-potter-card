@@ -1,0 +1,14 @@
+header{
+    background-color: #740001;
+    padding-bottom: 1rem;
+}
+p{
+    font-weight: 600;
+    font-size: 1.4rem;
+}
+input{
+    background-color: #d3a625;
+    border: none;
+    font-size: 1.3rem;
+    padding: .3rem;
+}
