@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import CardStyle from "./CardContainer.module.css";
 import axios from "axios";
 import Character from "../character/Character";
+import { Container, Row, Col } from 'react-bootstrap';
 
 const CardContainer = () => {
   const [data, setData] = useState([]);
@@ -27,13 +28,17 @@ const CardContainer = () => {
       {loading ? (
         <p>Loading...</p>
       ) : (
-        <div className={"row"}>
-          <div className={"col-md-3"}>
-            {data.map((character) => (
-              <Character key={character.id} {...character} />
-            ))}
-          </div>
-        </div>
+        // <Container>
+        //   <Row>
+        //     <Col>
+        <div>
+              {data.map((character) => (
+
+                <Character key={character.id} {...character} />
+              ))}</div>
+        //     </Col>
+        //   </Row>
+        // </Container>
       )}
     </main>
   );
