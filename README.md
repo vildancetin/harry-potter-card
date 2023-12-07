@@ -1,4 +1,4 @@
-# Harry Potter Seraching Card
+# Harry Potter Searching Card
 
 This project aims to display character cards when the page is loaded. When a search is performed through the input, the desired card will appear on the screen. Additionally, clicking on a card will allow users to view more detailed information.
 ### Outcome
