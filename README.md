@@ -66,4 +66,5 @@ In the Character component, the desired appearance for each character was implem
 
 export const ToggleCard = ({ species, house, patronus, image, name })
 ```
+[Demo](https://harry-potter-card.netlify.app/)
 I hope you like it! 😉
