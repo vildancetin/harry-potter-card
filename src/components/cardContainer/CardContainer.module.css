@@ -1,6 +1,15 @@
 main{
     background-color: #eeba30;
+    padding: 1rem;
 }
 .card{
     display: flex;
+}
+input{
+    background-color: #d3a625;
+    border: none;
+    font-size: 1.3rem;
+    padding: .3rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
 }

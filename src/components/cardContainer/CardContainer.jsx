@@ -1,13 +1,18 @@
 import { useEffect, useState } from "react";
 import CardStyle from "./CardContainer.module.css";
 import axios from "axios";
-import Character from "../character/Character";
+import {Character,ToggleCard} from "../character/Character";
 import { Container, Row, Col } from "react-bootstrap";
 
 const CardContainer = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [toggle,setToggle]=useState(false)
 
+  const handleSwap=()=>{
+    setToggle(!toggle)
+    console.log(toggle)
+  }
   useEffect(() => {
     const fetcData = async () => {
       try {
@@ -29,12 +34,18 @@ const CardContainer = () => {
         <p>Loading...</p>
       ) : (
         <Container>
-          <Row xs={1} md={3} className="g-4">
+           <input type="text" className={"mx-auto d-flex"} placeholder="Search the character..." size={30}/>
+          <Row xs={1} md={3} className="g-4" >
             {
               data.filter((char)=>(
                 char.image !== ""
               )).map((character) => (
-                <Character key={character.id} {...character} />
+                // <div onClick={handleSwap}>
+                //   {toggle 
+                //   ? <ToggleCard key={character.id} {...character}/> 
+                //   : <Character key={character.id} {...character}/>  }
+                // </div>
+                <Character key={character.id} {...character}/>
               ))
             }
           </Row>

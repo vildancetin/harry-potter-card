@@ -1,15 +1,7 @@
 header{
     background-color: #740001;
     padding-bottom: 1rem;
-    margin-bottom: 1rem;
 }
 h1{
     padding-bottom: .5rem;
-}
-input{
-    background-color: #d3a625;
-    border: none;
-    font-size: 1.3rem;
-    padding: .3rem;
-    border-radius: 10px;
 }
