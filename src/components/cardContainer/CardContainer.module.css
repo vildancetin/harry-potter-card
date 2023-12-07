@@ -6,8 +6,10 @@ main{
     display: flex;
 }
 input{
-    background-color: #d3a625;
+    background-color: #740001;
     border: none;
+    outline: #740001;
+    color: #d3a625;
     font-size: 1.3rem;
     padding: .3rem;
     border-radius: 10px;
