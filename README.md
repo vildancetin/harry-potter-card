@@ -1,70 +1,69 @@
-# Getting Started with Create React App
+# Harry Potter Seraching Card
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project aims to display character cards when the page is loaded. When a search is performed through the input, the desired card will appear on the screen. Additionally, clicking on a card will allow users to view more detailed information.
+### Outcome
+![harry-potter](https://github.com/vildancetin/harry-potter-card/assets/75564722/5abd4443-b2fd-4e31-b44e-5719671eb557)
 
-## Available Scripts
+### Add Dependencies
+After determining the project structure, the required libraries were added. Once Bootstrap and the Axios library for data retrieval were added using yarn add, the process of fetching data from the API was implemented in the card component. Loading and data information were managed using states since they might change.
+```bash
+yarn add react-bootstrap axios
+```
+### Get Data
 
-In the project directory, you can run:
+The API "https://hp-api.onrender.com/api/characters" was used.
+```javascript
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+ useEffect(() => {
+    const fetcData = async () => {
+      try {
+        const response = await axios.get(
+          "https://hp-api.onrender.com/api/characters"
+        );
+        setData(response.data);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    fetcData();
+  }, []);
 
-### `yarn start`
+```
+### Container
+In the container section, data without image information were filtered out using the map function. Some objects in the API did not contain image information. The data from this mapping process was sent to the Character component as props.
+```javascript
+input===""
+? (data.filter((char)=>(char.image !== ""))
+.map((character) => (
+<Character key={character.id} {...character}/>
+))
+)
+: (
+filteredCard.filter((card)=>(card.image!=="")).map((card)=>(<Character key={card.id} {...card}/>)))
+```
+An additional state was created in the container to store the input value. Filtering was applied based on whether the input was empty or contained data.
+### Character Card
+In the Character component, the desired appearance for each character was implemented, and different styling operations were applied based on the house information from the data. The component that will be displayed when the toggle operation is performed was created. A state was created to hold information about the toggle status. Different styling information was added for different houses.
+```javascript
+  const [flip, setFlipped] = useState(false);
+      {flip ? (
+        <ToggleCard {...props} />
+      ) : (
+        <Card style={{ width: "18rem", height: "30rem" } } className={CharacterStyle.card}>
+          <Card.Img src={image} alt="..." style={{ height: "25rem" }} />
+          <Card.Body className={`${
+          house === "Slytherin"
+            ? CharacterStyle["title-sly"]
+            : house === "Gryffindor"
+            ? CharacterStyle["title-gry"]
+            : house === "Hufflepuff"
+            ? CharacterStyle["title-huf"]
+            : CharacterStyle["title-rav"]
+          }`}>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+export const ToggleCard = ({ species, house, patronus, image, name })
+```
+I hope you like it! 😉
