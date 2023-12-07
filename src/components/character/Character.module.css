@@ -29,4 +29,31 @@
     font-size: 1.7rem;
     font-weight: 700;
     font-family: Harry Potter,Arial;
+    text-align: center;
+}
+.list{
+    font-family: Harry Potter,Arial;
+    font-size: 1.4rem;
+    font-weight: 400;
+    text-align: center;
+    text-transform: capitalize;
+}
+.toggleName{
+    font-family: Harry Potter,Arial;
+}
+.listItem-gry{
+    background-color: #eeba30;
+    color: #740001;
+}
+.listItem-huf{
+    background-color: #f0c75e;
+    color: #372e29;
+}
+.listItem-rav{
+    background-color: #bebebe;
+    color: #0e1a40;
+}
+.listItem-sly{
+    background-color: #aaaaaa;
+    color: #1a472a;
 }
