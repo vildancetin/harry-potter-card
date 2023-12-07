@@ -1,4 +1,32 @@
-.title{
+@font-face {font-family: "Harry Potter";
+    src: url("//db.onlinewebfonts.com/t/0421d4186d6efbfc5331fe180895e780.eot");
+    src: url("//db.onlinewebfonts.com/t/0421d4186d6efbfc5331fe180895e780.eot?#iefix") format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/0421d4186d6efbfc5331fe180895e780.woff2") format("woff2"),
+    url("//db.onlinewebfonts.com/t/0421d4186d6efbfc5331fe180895e780.woff") format("woff"),
+    url("//db.onlinewebfonts.com/t/0421d4186d6efbfc5331fe180895e780.ttf") format("truetype"),
+    url("//db.onlinewebfonts.com/t/0421d4186d6efbfc5331fe180895e780.svg#Harry Potter") format("svg");
+}
+.title-gry{
     background-color: #740001;
     color: #EEBA30;
+}
+.title-huf{
+    background-color: #372e29;
+    color: #f0c75e;
+}
+.title-rav{
+    background-color: #0e1a40;
+    color: #bebebe;
+}
+.title-sly{
+    background-color: #1a472a;
+    color: #aaaaaa;
+}
+.card:hover{
+    scale: .9;
+}
+.name{
+    font-size: 1.7rem;
+    font-weight: 700;
+    font-family: Harry Potter,Arial;
 }
