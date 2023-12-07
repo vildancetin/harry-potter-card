@@ -1,23 +1,21 @@
 import CharacterStyle from "./Character.module.css";
-import { Card, Col, Row } from "react-bootstrap";
+import { Card, Col } from "react-bootstrap";
 
-const Character = ({ name, house, image }) => {
+const Character = ({ name, house, image ,id}) => {
   return (
     <div>
-      {image ? (
-        <Row xs={1} md={3}>
-          <Col>
-        <Card style={{ width: "18rem" }}>
-          <Card.Img src={image} alt="..." />
+      {(
+
+          <Col key={id}>
+        <Card style={{ width: "18rem",height:"30rem"}}>
+          <Card.Img src={image} alt="..."  style={{height:"25rem"}}/>
           <Card.Body>
             <Card.Text>{name}</Card.Text>
           </Card.Body>
           </Card>
           </Col>
-        </Row>
 
-        
-      ) : null}
+      )}
     </div>
   );
 };
